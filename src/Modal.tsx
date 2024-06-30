@@ -23,17 +23,30 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsOpen }) => {
     isOpen ? closeModal() : null
   }
 
+  // const handleInsert = () => {
+  //   closeModal()
+
+  //   const textarea = document.querySelector(
+  //     ".msg-form__contenteditable"
+  //   ) as HTMLTextAreaElement
+
+  //   textarea.children[0].innerHTML = DUMMY_RESPONSE
+  //   setIsGenerated(false)
+  //   setUserInput("")
+  // }
   const handleInsert = () => {
-    closeModal()
+    closeModal();
 
-    const textarea = document.querySelector(
-      ".msg-form__contenteditable"
-    ) as HTMLTextAreaElement
+    const contentEditableElement = document.querySelector(".msg-form__contenteditable") as HTMLElement | null;
 
-    textarea.children[0].innerHTML = DUMMY_RESPONSE
-    setIsGenerated(false)
-    setUserInput("")
-  }
+    if (contentEditableElement) {
+      contentEditableElement.innerHTML = DUMMY_RESPONSE;
+    }
+
+    setIsGenerated(false);
+    setUserInput("");
+  };
+
 
   return (
     <>

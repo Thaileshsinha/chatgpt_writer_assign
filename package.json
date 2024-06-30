@@ -3,7 +3,7 @@
   "displayName": "LinkedIn AI Reply Chrome Extension",
   "version": "0.0.1",
   "description": "LinkedIn AI Reply Chrome Extension - built with Plasmo",
-  "author": "Anurag Band - anuragband10@gmail.com",
+  "author": "Thailesh Sinha",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
