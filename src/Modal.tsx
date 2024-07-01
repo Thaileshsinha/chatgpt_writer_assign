@@ -34,18 +34,48 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsOpen }) => {
   //   setIsGenerated(false)
   //   setUserInput("")
   // }
+  // const handleInsert = () => {
+  //   closeModal();
+
+  //   const contentEditableElement = document.querySelector(".msg-form__contenteditable p") as HTMLElement | null;
+  //   console.log(contentEditableElement)
+  //   if (contentEditableElement) {
+  //     contentEditableElement.innerHTML = DUMMY_RESPONSE;
+  //   }
+
+  //   setIsGenerated(false);
+  //   setUserInput("");
+  // };
+
+  // const handleInsert = () => {
+  //   closeModal();
+
+  //   const contentEditableElement = document.querySelector(".msg-form__contenteditable") as HTMLElement | null;
+  //   const pTag = contentEditableElement.querySelector("p") as HTMLParagraphElement | null;
+
+  //   if (pTag) {
+  //     pTag.textContent = DUMMY_RESPONSE;
+  //   }
+
+  //   setIsGenerated(false);
+  //   setUserInput("");
+  // };
   const handleInsert = () => {
-    closeModal();
+    closeModal()
 
-    const contentEditableElement = document.querySelector(".msg-form__contenteditable") as HTMLElement | null;
-
-    if (contentEditableElement) {
-      contentEditableElement.innerHTML = DUMMY_RESPONSE;
+    const textarea = document.querySelector(
+      ".msg-form__contenteditable"
+    ) as HTMLDivElement
+    console.log("textarea", textarea)
+    if (textarea && textarea.children[0]) {
+      textarea.children[0].textContent = DUMMY_RESPONSE
+      console.log("textarea.children[0].textContent", textarea.children[0].textContent)
+      setIsGenerated(false)
+      setUserInput("")
+    } else {
+      console.error('Textarea element not found or not properly structured.')
     }
-
-    setIsGenerated(false);
-    setUserInput("");
-  };
+  }
 
 
   return (
